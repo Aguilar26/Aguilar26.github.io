@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image:  url(AnimHouse.jpg);
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-color:rgb(150, 80, 0);
+    color: #5a3e2b;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}

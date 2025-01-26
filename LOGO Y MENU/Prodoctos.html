@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Casas de Madera</title>
+    <link rel="stylesheet" href="styles2.css"> <!-- Enlace al archivo CSS externo -->
+</head>
+<body>
+    
+    <div class="photo-gallery">
+        <div class="photo-item">
+            <img src="Image1.jpg" alt="Casa de Madera 1">
+            <div class="price-box">$199</div>
+            <a href="Casa1992.html">
+                <button>Información</button>
+            </a>             
+            <img id="imagen" src="Image2.jpg" alt="Casa de Madera 1">
+            <div class="price-box">$110</div>
+            <a href="Casas110.html">
+                <button>Información</button>
+            </a>             
+        </div>
+        <div class="photo-item">
+            <img src="image4.jpeg" alt="Casa de Madera 2">
+            <div class="price-box">$200</div>
+            <a href="Casa200sfirst.html">
+                <button>Información</button>
+            </a>             
+            
+            <img src="Image5.jpeg" alt="Casa de Madera 2">
+            <div class="price-box">$200</div>
+            <button>Información</button>
+
+        </div>
+        <div class="photo-item">
+            <img src="Image6.jpeg" alt="Casa de Madera 3">
+            <div class="price-box">$150</div>
+            <button>Información</button>
+            <div class="photo-item">
+                <img src="Image7.jpeg" alt="Casa de Madera 4">
+                <div class="price-box">$90</div>
+                <button>Información</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="calculator">
+        <h2>Calcula tus costos</h2>
+        <label for="quantity">Cantidad:</label>
+        <input type="number" id="quantity" placeholder="0">
+        <br>
+        <label for="price">Precio por unidad:</label>
+        <input type="number" id="price" placeholder="0">
+        <br>
+        <button onclick="calcularTotal()">Calcular</button>
+        <p id="total">Total: $0.00</p>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const cantidad = parseInt(document.getElementById('quantity').value) || 0;
+            const precio = parseFloat(document.getElementById('price').value) || 0;
+            const total = cantidad * precio;
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function mostrarFecha() {
+            const fecha = new Date();
+            const dia = fecha.getDate().toString().padStart(2, '0');
+            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+            const anio = fecha.getFullYear();
+            const fechaFormateada = `${dia}-${mes}-${anio}`;
+            document.getElementById('current-date').textContent = `${fechaFormateada}`;
+        }
+
+        mostrarFecha(); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Casas de Madera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc;
+            color: #5a3e2b;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #8b5a2b;
+            color: white;
+            padding: 1rem;
+        }
+
+        header h1 {
+            color: #5a3e2b;
+            transition: color 0.3s ease; /* Agrega una transición suave */
+        }
+
+        header h1:hover {
+            color: #d2691e; /* Color al pasar el cursor */
+        }
+
+        .date {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: white; /* Cambié el color a blanco */
+        }
+
+        .calculator {
+            margin: 2rem auto;
+            padding: 1rem;
+            border: 1px solid #8b5a2b;
+            border-radius: 5px;
+            background-color: #fff8dc;
+            display: inline-block;
+        }
+
+        .calculator input {
+            margin: 0.5rem;
+            padding: 0.5rem;
+            width: 100px;
+        }
+
+        .calculator button {
+            padding: 0.5rem 1rem;
+            background-color: #8b5a2b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculator button:hover {
+            background-color: #5a3e2b;
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .photo-item {
+            text-align: center;
+        }
+
+        .photo-gallery img {
+            width: 200px;
+            height: 150px;
+            border: 2px solid #8b5a2b;
+            border-radius: 5px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .photo-gallery button {
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #8b5a2b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .photo-gallery button:hover {
+            background-color: #5a3e2b;
+        }
+
+        .price-box {
+            background-color: #000;
+            color: white;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tienda de Casas de Madera</h1>
+        <div class="date" id="current-date"></div> <!-- Contenedor para la fecha -->
+    </header>
+    
+    <div class="photo-gallery">
+        <div class="photo-item">
+            <img src="Image1.jpg" alt="Casa de Madera 1">
+            <div class="price-box">$199</div>
+            <button>Agregar al Carrito</button>
+            
+        </div>
+        <div class="photo-item">
+            <img src="Image2.jpg" alt="Casa de Madera 2">
+            <div class="price-box">$200</div>
+            <button>Agregar al Carrito</button>
+        </div>
+        <div class="photo-item">
+            <img src="Image3.jpg" alt="Casa de Madera 3">
+            <div class="price-box">$150</div>
+            <button>Agregar al Carrito</button>
+            <img src="image4.jpeg" alt="Casa de Madera 3">
+            <div class="price-box">$150</div>
+            <button>Agregar al Carrito</button>
+        </div>
+    </div>
+
+    <div class="calculator">
+        <h2>Calcula tus costos</h2>
+        <label for="quantity">Cantidad:</label>
+        <input type="number" id="quantity" placeholder="0">
+        <br>
+        <label for="price">Precio por unidad:</label>
+        <input type="number" id="price" placeholder="0">
+        <br>
+        <button onclick="calcularTotal()">Calcular</button>
+        <p id="total">Total: $0.00</p>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            const cantidad = parseInt(document.getElementById('quantity').value) || 0;
+            const precio = parseFloat(document.getElementById('price').value) || 0;
+            const total = cantidad * precio;
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function mostrarFecha() {
+            const fecha = new Date();
+            const dia = fecha.getDate().toString().padStart(2, '0');
+            const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+            const anio = fecha.getFullYear();
+            const fechaFormateada = `${dia}-${mes}-${anio}`;
+            document.getElementById('current-date').textContent = `Bienvenido: ${fechaFormateada}`;
+        }
+
+        mostrarFecha(); 
+    </script>
+</body>
+</html>
